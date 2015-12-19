@@ -6,8 +6,8 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/DeveloperLx/LxFTPRequest"
   s.license      = 'Apache'
   s.authors      = { 'DeveloperLx' => 'developerlx@yeah.com' }
-  s.platform     = :ios, "6.0"
-  s.ios.deployment_target = "6.0"
+  #s.platform     = :ios, "6.0"
+  #s.ios.deployment_target = "6.0"
   s.source       = { :git => "https://github.com/DeveloperLx/LxFTPRequest.git", :tag => s.version}
   s.source_files = 'LxFTPRequest/LxFTPRequest.*'
   s.requires_arc = true
