@@ -384,7 +384,12 @@ void resourceListReadStreamClientCallBack(CFReadStreamRef stream, CFStreamEventT
                                                                            &parsedDictionary);
                     if (bytesParsed > 0) {
                         if (parsedDictionary != NULL) {
-                            [resourceArray addObject:(__bridge id)parsedDictionary];
+                            //[resourceArray addObject:(__bridge id)parsedDictionary];
+                            NSMutableDictionary *entry = [NSMutableDictionary dictionaryWithDictionary:(__bridge NSDictionary *)parsedDictionary];
+                            NSString *nameEntry;
+                            if ((nameEntry = entry[(id)kCFFTPResourceName]))
+                                entry[(id)kCFFTPResourceName] = [[NSString alloc] initWithData:[nameEntry dataUsingEncoding:NSMacOSRomanStringEncoding allowLossyConversion:YES] encoding:NSUTF8StringEncoding];
+                            [resourceArray addObject:entry];
                             CFRelease(parsedDictionary);
                         }
                         totalBytesParsed += bytesParsed;
